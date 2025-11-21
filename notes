@@ -1,2 +1,2 @@
-Simple converter data from csv file to json file, with validation in Pydantic, enum and testes.
+Simple converter data from csv file to json file, with validation in Pydantic, loggers, enum and testes.
 Further steps in progress
