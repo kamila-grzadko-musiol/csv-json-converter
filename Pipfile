@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 pydantic = "*"
+mypy = "*"
 
 [dev-packages]
 pytest = "*"
@@ -15,3 +16,4 @@ python_version = "3.12"
 
 [scripts]
 start = "python main.py"
+
