@@ -1,10 +1,10 @@
-from src.converter import csv_to_list, save_json
-from src.model import Product
+from src.converter import CsvToJsonConverter
 
 
 def main() -> None:
-    products = csv_to_list("data_csv/example.csv")
-    save_json(products, 'data_json/example.json')
+    conv = CsvToJsonConverter("data_csv/example.csv")
+    products = conv.csv_to_products()
+    conv.save_json("data_json/example.json")
 
 
 if __name__ == '__main__':
