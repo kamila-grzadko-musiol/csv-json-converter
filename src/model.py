@@ -9,10 +9,19 @@ class ProductCategory(str, Enum):
 
 
 class Product:
-    id: int
-    name: str
-    category: ProductCategory
-    price: Decimal
+    def __init__(self, id: int, name: str, category: ProductCategory, price: Decimal):
+        self.id = id
+        self.name = name
+        self.category = category
+        self.price = price
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "category": self.category.value,
+            "price": str(self.price)
+        }
 
 
 

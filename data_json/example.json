@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "Smartphone",
+        "category": "Electronic",
+        "price": "199.99"
+    },
+    {
+        "id": "2",
+        "name": "It",
+        "category": "Book",
+        "price": "29.99"
+    },
+    {
+        "id": "3",
+        "name": "T-shirt",
+        "category": "Clothing",
+        "price": "22.00"
+    },
+    {
+        "id": "4",
+        "name": "Shirt",
+        "category": "Clothing",
+        "price": "10.00"
+    }
+]
