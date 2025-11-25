@@ -1,9 +1,13 @@
 import csv
 import json
+import logging
 from pathlib import Path
 from src.model import Product, ProductCategory
 from decimal import Decimal
 from dataclasses import dataclass
+
+logging.basicConfig(level=logging.INFO)
+
 
 @dataclass
 class CsvToJsonConverter:
@@ -15,6 +19,7 @@ class CsvToJsonConverter:
     def csv_to_products(self) -> list[Product]:
 
         if not self.csv_path.exists():
+            logging.error(f"CSV file not found: {self.csv_path}", )
             raise FileNotFoundError(f"File not found: {self.csv_path}")
 
         with self.csv_path.open("r", encoding="utf-8") as f:
@@ -32,6 +37,7 @@ class CsvToJsonConverter:
 
     def save_json(self, json_path: str) -> None:
         json_data = [row.to_dict() for row in self.products]
+        print(json_data)
 
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(json_data, f, indent=4, ensure_ascii=False)
