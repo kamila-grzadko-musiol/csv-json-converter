@@ -5,15 +5,16 @@ name = "pypi"
 
 [packages]
 pydantic = "*"
-mypy = "*"
 
 [dev-packages]
 pytest = "*"
 pytest-cov = "*"
+pyright = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.12"
 
 [scripts]
 start = "python main.py"
-
+check = "mypy src tests main.py"

@@ -22,7 +22,7 @@ class CsvToJsonConverter:
             logging.error(f"CSV file not found: {self.csv_path}", )
             raise FileNotFoundError(f"File not found: {self.csv_path}")
 
-        with self.csv_path.open("r", encoding="utf-8") as f:
+        with open(self.csv_path, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f, delimiter=';')
 
             for row in reader:
@@ -37,11 +37,10 @@ class CsvToJsonConverter:
 
     def save_json(self, json_path: str) -> None:
         json_data = [row.to_dict() for row in self.products]
-        print(json_data)
 
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(json_data, f, indent=4, ensure_ascii=False)
 
-    def convert(self, json_path: str) -> None:
+    def _convert(self, json_path: str) -> None:
         self.csv_to_products()
         self.save_json(json_path)

@@ -1,21 +1,29 @@
+from pydantic import BaseModel, Field
 from decimal import Decimal
 from enum import Enum
+from typing import TypedDict
 
 
-class ProductCategory(str, Enum):
+class ProductCategory(Enum):
     ELECTRONIC = 'Electronic'
     BOOK = 'Book'
     CLOTHING = 'Clothing'
 
 
-class Product:
-    def __init__(self, id: int, name: str, category: ProductCategory, price: Decimal):
-        self.id = id
-        self.name = name
-        self.category = category
-        self.price = price
+class ProductDataDict(TypedDict):
+    id: int
+    name: str
+    category: str
+    price: str
 
-    def to_dict(self) -> dict:
+
+class Product(BaseModel):
+    id: int = Field(..., ge=1)
+    name: str
+    category: ProductCategory
+    price: Decimal = Field(..., ge=0)
+
+    def to_dict(self) -> ProductDataDict:
         return {
             "id": self.id,
             "name": self.name,
