@@ -4,12 +4,11 @@ import logging
 from pathlib import Path
 from src.model import Product, ProductCategory
 from decimal import Decimal
-from dataclasses import dataclass
+
 
 logging.basicConfig(level=logging.INFO)
 
 
-@dataclass
 class CsvToJsonConverter:
 
     def __init__(self, csv_path: str):
